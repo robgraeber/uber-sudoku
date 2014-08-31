@@ -1,17 +1,39 @@
 #container{
   margin: auto;
   width: 1024px;
-
 }
 .text-center{
   text-align: center;
 }
-table{
-  margin:auto;
-  border-spacing: 0;
-}
-td{
-  border: 1px solid #222;
-  width: 5%;
-  text-align: center;
+#game-board{
+  table{
+    margin:auto;
+    border-spacing: 0;
+    border-collapse:collapse;
+  }
+  td{
+    border: 2px solid #222;
+    text-align: center;
+  }
+  $border = 3px solid #222;
+  .b-top{
+    border-top: $border;
+  }
+  .b-bottom{
+    border-bottom: $border;
+  }
+  .b-right{
+    border-right: $border;
+  }
+  .b-left{
+    border-left: $border;
+  }
+
+  input[type="tel"]{
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    text-align:center;
+  }
 }
