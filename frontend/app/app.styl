@@ -1,39 +1,48 @@
-#container{
-  margin: auto;
-  width: 1024px;
+body{
+  font-family: 'Open Sans Condensed', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 24px;
+}
+h1{
+  margin: 0.5em;
+  font-size: 1.8em;
 }
 .text-center{
   text-align: center;
 }
 #game-board{
   table{
-    margin:auto;
+    margin: auto;
     border-spacing: 0;
-    border-collapse:collapse;
+    border-radius: 4px;
+    border: 4px solid #000;
   }
   td{
-    border: 2px solid #222;
     text-align: center;
+    // width: 5%;
   }
-  $border = 3px solid #222;
-  .b-top{
-    border-top: $border;
-  }
+
+  $border = 1px solid #222;
+  $borderHeavy = 3px solid #222;
   .b-bottom{
     border-bottom: $border;
   }
   .b-right{
     border-right: $border;
   }
-  .b-left{
-    border-left: $border;
+  .b-bottom-heavy{
+    border-bottom: $borderHeavy;
+  }
+  .b-right-heavy{
+    border-right: $borderHeavy;
   }
 
   input[type="tel"]{
     margin: 0;
-    width: 20px;
-    height: 20px;
+
+    width: 2em;
+    height: 2em;
     border: 0;
     text-align:center;
+    font-size: 1em;
   }
 }

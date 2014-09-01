@@ -65,7 +65,7 @@ var syncMe = function(){
   browserSync({
     server: {
       baseDir: publicDir,
-      notify: false
+      notify: false,
     }
   });
 };
