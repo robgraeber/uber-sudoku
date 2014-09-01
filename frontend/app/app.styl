@@ -1,10 +1,16 @@
+@import 'nib'
+
 body{
   font-family: 'Open Sans Condensed', 'Helvetica Neue', Arial, sans-serif;
   font-size: 24px;
+  //background courtesy of http://lea.verou.me/css3patterns/#lined-paper
+  background-color: #fff; 
+  background-image: linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
 }
 h1{
-  margin: 0.5em;
-  font-size: 1.8em;
+  margin: 0.4em;
+  font-size: 2em;
 }
 .text-center{
   text-align: center;
@@ -15,10 +21,11 @@ h1{
     border-spacing: 0;
     border-radius: 4px;
     border: 4px solid #000;
+    box-shadow: 10px 10px 5px #888888;
   }
   td{
     text-align: center;
-    // width: 5%;
+    background-color: white;
   }
 
   $border = 1px solid #222;
@@ -35,17 +42,21 @@ h1{
   .b-right-heavy{
     border-right: $borderHeavy;
   }
+  .read-only{
+    background-color: #A8EEFF;
+  }
   .highlighted{
     background-color: yellow;
   }
 
   input[type="tel"]{
     margin: 0;
-
     width: 2em;
     height: 2em;
     border: 0;
     text-align:center;
     font-size: 1em;
+    background-color: inherit;
   }
+
 }
