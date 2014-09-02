@@ -15,10 +15,11 @@
 
   </head>
   <body>
-    <h1 class="text-center">Uber Sudoku!</h1>
+    <h1>Uber Sudoku!</h1>
+
     <div id="game-board">
       <table></table>
-      <div id="new-game-overlay">
+      <div id="start-menu" class="new-game-overlay">
         <h3>Uber Sudoku!</h3>
         <a href="#" class="overlay-btn start-btn">Start Game</a>
         <br>
@@ -26,7 +27,26 @@
         <br>
         <span class="copyright-text"><a href="http://www.robgraeber.com" target="_blank">© 2014 Rob Graeber</a></span>
       </div>
+      <div id="pause-menu" class="new-game-overlay" style="display: none;">
+        <a href="#" class="exit-btn"></a>
+        <h3>Uber Sudoku!</h3>
+        <a href="#" class="overlay-btn start-btn">New Game</a>
+        <br>
+        <a href="http://www.effinggames.com" class="overlay-btn" target="_blank">More Games</a>
+        <br>
+        <span class="copyright-text"><a href="http://www.robgraeber.com" target="_blank">© 2014 Rob Graeber</a></span>
+      </div>
+      <div id="win-menu" class="new-game-overlay" style="display: none;">
+        <h3>Sweet Victory!!</h3>
+        <a href="#" class="overlay-btn start-btn">New Game</a>
+        <br>
+        <a href="http://www.effinggames.com" class="overlay-btn" target="_blank">More Games</a>
+        <br>
+        <span class="copyright-text"><a href="http://www.robgraeber.com" target="_blank">© 2014 Rob Graeber</a></span>
+      </div>
     </div>
-    
+    <div class="options-container">
+      <a href="#" class="overlay-btn options-btn">Menu</a>
+    </div>
   </body>
 </html>

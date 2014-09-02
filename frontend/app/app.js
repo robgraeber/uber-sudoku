@@ -3,6 +3,24 @@ var _ = require("underscore");
 var Sudoku = require("./sudoku"); //3rd party sudoku generator
 var util2 = require("./util2");
 
+//a better cross browser way to set font-size, instead of using vh / vw
+var fontFix = function () {
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    var height = window.innerHeight || document.documentElement.clientHeight;
+
+    var fontSize;
+    if(width>768){
+      fontSize = 0.037 * height;
+    }else if(width > 480){
+      fontSize = 0.034 * height;
+    }else{
+      fontSize = 0.045 * width;
+    }
+    document.body.style.fontSize = fontSize + "px";
+};
+window.addEventListener('resize', fontFix);
+window.addEventListener('load', fontFix);
+
 $(function(){
 
   //sets up a new sudoku board
@@ -11,7 +29,9 @@ $(function(){
     sudoku.level = 0;
     sudoku.newGame()
     var sudokuBoard = util2.arrayToMatrix(sudoku.matrix, 9)
-
+    sudoku.solveGame();
+    console.log("Solution:", JSON.stringify(util2.arrayToMatrix(sudoku.matrix, 9)));
+    
     createGameBoard($("#game-board table"), sudokuBoard);
 
     var $sudokuCells = $("#game-board input");
@@ -96,6 +116,8 @@ $(function(){
     });
     if(validCounter === $sudokuBoard.length * $sudokuBoard.length){
       console.log("win!!");
+      $("#win-menu").show();
+      $("input").prop("disabled", true);
     }
   }
   //creates the basic sudoku game board w/ prefilled numbers
@@ -127,9 +149,28 @@ $(function(){
     $el.append(template);
   };
   setupNewGame();
-  $("#new-game-overlay .start-btn").click(function(){
-    $("#new-game-overlay").hide();
-  })  
-  
-
+  $("input").prop("disabled", true); //disables board while menu is out
+  $("#start-menu .start-btn").click(function(e){
+    e.preventDefault();
+    $(this).parent().hide();
+    $("input").prop("disabled", false);
+  });
+  $("#pause-menu .start-btn, #win-menu .start-btn").click(function(e){
+    e.preventDefault();
+    setupNewGame();
+    $(this).parent().hide();
+    $("input").prop("disabled", false);
+  });
+  $("#pause-menu .exit-btn").click(function(e){
+    e.preventDefault();
+    $(this).parent().hide();
+    $("input").prop("disabled", false);
+  });  
+  $(".options-btn").click(function(e){
+    e.preventDefault();
+    if($("#start-menu").css('display') === 'none' && $("#win-menu").css('display') === 'none'){
+      $("#pause-menu").show();
+      $("input").prop("disabled", true);
+    }
+  }); 
 });
