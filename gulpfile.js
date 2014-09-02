@@ -107,7 +107,7 @@ gulp.task('default', ['clean'], function(){
 
 //production build task
 gulp.task('build', ['clean'], function(){
-  return merge(copyStuff(), browserifyAppJS(true), concatCSS(true))
+  return merge(copyStuff(), browserifyAppJS(false), concatCSS(false))
   .on("end", function(){
     minifyImages();
   });
