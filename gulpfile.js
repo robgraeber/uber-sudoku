@@ -3,6 +3,7 @@ var gulpif      = require('gulp-if');
 var browserify  = require('browserify');
 var browserSync = require('browser-sync');
 var reloadMe    = browserSync.reload;
+var imageMin    = require('gulp-imagemin');
 var clean       = require('gulp-rimraf');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');

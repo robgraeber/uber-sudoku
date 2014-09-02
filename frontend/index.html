@@ -9,9 +9,15 @@
     <title>Uber Sudoku!</title>
     <!-- CSS-->
     <link rel="stylesheet" type='text/css' href="assets/app.css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <!-- JS-->
-    <script type="text/javascript" src="app.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Open Sans Condensed:300,500,700']
+        }
+      });
+    </script>
 
   </head>
   <body>
@@ -48,5 +54,26 @@
     <div class="options-container">
       <a href="#" class="overlay-btn options-btn">Menu</a>
     </div>
+
+    <script>
+      //a better cross browser way to set font-size, instead of using vh / vw
+      var fontFix = function () {
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        var height = window.innerHeight || document.documentElement.clientHeight;
+        var fontSize;
+        if(width>768){
+          fontSize = 0.037 * height;
+        }else if(width > 480){
+          fontSize = 0.034 * height;
+        }else{
+          fontSize = 0.045 * width;
+        }
+        document.body.style.fontSize = fontSize + "px";
+    };
+    fontFix();
+    window.addEventListener('resize', fontFix);
+    window.addEventListener('load', fontFix);
+    </script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>

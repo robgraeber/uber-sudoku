@@ -3,23 +3,7 @@ var _ = require("underscore");
 var Sudoku = require("./sudoku"); //3rd party sudoku generator
 var util2 = require("./util2");
 
-//a better cross browser way to set font-size, instead of using vh / vw
-var fontFix = function () {
-    var width = window.innerWidth || document.documentElement.clientWidth;
-    var height = window.innerHeight || document.documentElement.clientHeight;
 
-    var fontSize;
-    if(width>768){
-      fontSize = 0.037 * height;
-    }else if(width > 480){
-      fontSize = 0.034 * height;
-    }else{
-      fontSize = 0.045 * width;
-    }
-    document.body.style.fontSize = fontSize + "px";
-};
-window.addEventListener('resize', fontFix);
-window.addEventListener('load', fontFix);
 
 $(function(){
 

@@ -1,23 +1,24 @@
 @import 'nib'
 
-body{
+.wf-loading, .wf-inactive {        
+  font-family: 'Arial Narrow', sans-serif;
+}  
+
+.wf-active {        
   font-family: 'Open Sans Condensed', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 4vh;
+}   
+body{
+  font-size: 24px; //gets set by script
   //background courtesy of http://lea.verou.me/css3patterns/#lined-paper
   background-color: #fff; 
   background-image: linear-gradient(#eee .1em, transparent .1em);
   background-size: 100% 1.2em;
-  text-align: center;
-  @media only screen and (max-width: 768px){
-    font-size: 3.4vh;
-  }
-  @media only screen and (max-width: 480px) {
-    font-size: 4.5vw;
-  }
 }
 h1{
-  margin: 0.25em 0;
+  margin: 0.25em auto;
+  height: 1.2em;
   font-size: 2.1em;
+  text-align: center;
   color: white;
   text-shadow:
        0.05em 0.05em 1px #000,
@@ -38,6 +39,7 @@ h1{
   top: 1.0em;
   left: 0;
   right: 0;
+  text-align: center;
   @media only screen and (max-width: 768px) {
     top: 0.8em;
   }
@@ -109,8 +111,10 @@ h1{
     box-sizing: border-box;
     background-color: inherit;
   }
-  input[disabled]{
+  input:disabled{
+    -webkit-text-fill-color: inherit;
     color: inherit;
+    opacity: 1!important; //for iOS bug-fix
   }
 }
 .bounce-in{
@@ -162,6 +166,7 @@ h1{
     margin: 0;
     color: white;
     font-size: 1.3em;
+    height: 1.3em;
     text-shadow:
          0.05em 0.05em 1px #000,
        -1px -1px 0px #000,  
