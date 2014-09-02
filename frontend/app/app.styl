@@ -16,8 +16,8 @@ body{
 }
 
 h1{
-  margin: 0.4em;
-  font-size: 2em;
+  margin: 0.35em 0;
+  font-size: 2.2em;
   color: white;
   text-shadow:
        0.05em 0.05em 1px #000,
@@ -25,6 +25,12 @@ h1{
       1px -1px 1px #000,
       -1px 1px 1px #000,
        1px 1px 1px #000;
+  @media only screen and (max-width: 768px){
+    font-size: 3em;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 3.5em;
+  }
 }
 .text-center{
   text-align: center;
@@ -90,7 +96,15 @@ h1{
   border: 2px solid #222;
   border-radius: 0.18em;
   box-shadow: 0.25em 0.25em 0.15em rgba(0, 0, 0, 0.5);
-
+  font-size: 1em;
+  @media only screen and (max-width: 768px){
+    font-size: 1.4em;
+    bottom: 18%;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 2em;
+    bottom: 9%;
+  }
   h3{
     margin: 0;
     color: white;
@@ -104,7 +118,7 @@ h1{
   }
   .overlay-button {
     display:  inline-block;
-    margin: 0.15em 0;
+    margin: 0.25em 0;
     width: 12.5em;
     height: 2.7em;
     line-height: 2.7em;
