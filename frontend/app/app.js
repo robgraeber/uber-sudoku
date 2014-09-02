@@ -5,14 +5,14 @@ var util2 = require("./util2");
 
 $(function(){
 
-  var $gameBoard = $("#game-board table");
+  //sets up a new sudoku board
   var setupNewGame = function(){
     var sudoku = new Sudoku();
     sudoku.level = 0;
     sudoku.newGame()
     var sudokuBoard = util2.arrayToMatrix(sudoku.matrix, 9)
 
-    createGameBoard($gameBoard, sudokuBoard);
+    createGameBoard($("#game-board table"), sudokuBoard);
 
     var $sudokuCells = $("#game-board input");
     var $sudokuBoard = [];
@@ -127,6 +127,9 @@ $(function(){
     $el.append(template);
   };
   setupNewGame();
+  $("#new-game-overlay .start-btn").click(function(){
+    $("#new-game-overlay").hide();
+  })  
   
 
 });
