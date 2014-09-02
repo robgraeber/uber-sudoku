@@ -29,7 +29,8 @@ var concatCSS = function(minifyMe){
   .pipe(stylus({use: [nib()]}))
   .pipe(concat('app.css'))
   .pipe(gulpif(minifyMe, cssMin()))
-  .pipe(gulp.dest(publicAssetsDir));
+  .pipe(gulp.dest(publicAssetsDir))
+  .pipe(reloadMe({stream:true}));
 };
 var copyStuff = function(minifyMe) {
   return gulp.src([
@@ -88,7 +89,7 @@ gulp.task('default', ['clean'], function(){
   gulp.watch('./frontend/app/**/*.styl', function(){
     console.log("File change - concatCSS()");
     concatCSS().on("end", function(){
-      reloadMe();
+      // reloadMe();
     });
   });
   gulp.watch(['./frontend/**/*', '!./frontend/**/*.js', '!./frontend/**/*.styl', '!./frontend/lib/**/*'], function(){

@@ -4,13 +4,15 @@ var Sudoku = require("./sudoku"); //3rd party sudoku generator
 var util2 = require("./util2");
 
 $(function(){
+
+  var $gameBoard = $("#game-board table");
   var setupNewGame = function(){
     var sudoku = new Sudoku();
     sudoku.level = 0;
     sudoku.newGame()
     var sudokuBoard = util2.arrayToMatrix(sudoku.matrix, 9)
 
-    createGameBoard($("#game-board table"), sudokuBoard);
+    createGameBoard($gameBoard, sudokuBoard);
 
     var $sudokuCells = $("#game-board input");
     var $sudokuBoard = [];
@@ -35,7 +37,7 @@ $(function(){
   //checks for duplicate number occurances and invalid values
   var checkGameBoard = function($sudokuBoard, $sudokuCells){
     $sudokuCells.parent().removeClass("highlighted");
-
+    var validCounter = 0; //counts valid squares
     var boxes = [[{},{},{}],[{},{},{}],[{},{},{}]]; //3x3 box counter
     for(var y = 0; y < $sudokuBoard.length; y++){
       var counter = {}; //horizontal counter
@@ -45,6 +47,8 @@ $(function(){
         var value = $sudokuBoard[y][x].val();
         if(isNaN(value) || value === "0"){
           $sudokuBoard[y][x].parent().addClass("highlighted");
+        }else if(value !== ""){
+          validCounter++;
         }
         //checks 3x3's
         var yQuad = Math.floor(y/3);
@@ -67,6 +71,7 @@ $(function(){
         if(counter[key].length > 1 && key !== ""){
           _.each(counter[key], function($el){
             $el.parent().addClass("highlighted");
+            validCounter--;
           })
         }
       }
@@ -74,6 +79,7 @@ $(function(){
         if(counter2[key].length > 1 && key !== ""){
           _.each(counter2[key], function($el){
             $el.parent().addClass("highlighted");
+            validCounter--;
           })
         }
       }
@@ -83,10 +89,14 @@ $(function(){
         if(counter[key].length > 1 && key !== ""){
           _.each(counter[key], function($el){
             $el.parent().addClass("highlighted");
+            validCounter--;
           })
         }
       }
-    })
+    });
+    if(validCounter === $sudokuBoard.length * $sudokuBoard.length){
+      console.log("win!!");
+    }
   }
   //creates the basic sudoku game board w/ prefilled numbers
   var createGameBoard = function($el, sudokuBoard){
@@ -116,7 +126,6 @@ $(function(){
     $el.children().detach();
     $el.append(template);
   };
-
   setupNewGame();
   
 

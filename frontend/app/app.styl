@@ -2,34 +2,51 @@
 
 body{
   font-family: 'Open Sans Condensed', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   //background courtesy of http://lea.verou.me/css3patterns/#lined-paper
   background-color: #fff; 
   background-image: linear-gradient(#eee .1em, transparent .1em);
   background-size: 100% 1.2em;
+  @media only screen and (max-width: 768px){
+    font-size: 18px;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 10px;
+  }
 }
+
 h1{
   margin: 0.4em;
   font-size: 2em;
+  color: white;
+  text-shadow:
+       0.05em 0.05em 1px #000,
+     -1px -1px 0px #000,  
+      1px -1px 1px #000,
+      -1px 1px 1px #000,
+       1px 1px 1px #000;
 }
 .text-center{
   text-align: center;
 }
 #game-board{
+  position: relative;
+
   table{
     margin: auto;
     border-spacing: 0;
-    border-radius: 4px;
-    border: 4px solid #000;
-    box-shadow: 10px 10px 5px #888888;
+    border-radius: 0.15em ;
+    border: 0.15em solid #000;
+    box-shadow: 0.3em 0.3em 0.2em rgba(0, 0, 0, 0.6);
   }
   td{
+    display: inline-block;
     text-align: center;
     background-color: white;
   }
 
   $border = 1px solid #222;
-  $borderHeavy = 3px solid #222;
+  $borderHeavy = 0.2em solid #222;
   .b-bottom{
     border-bottom: $border;
   }
@@ -57,6 +74,99 @@ h1{
     text-align:center;
     font-size: 1em;
     background-color: inherit;
-  }
+    // @media only screen and (max-width: 768px){
+    //   font-size: 24px;
+    //   width: 1px;
 
+    // }
+    // @media only screen and (max-width: 480px) {
+    //   font-size: 14px;
+    //   width: 100px;
+
+    // }
+  }
+}
+#new-game-overlay{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 32%;
+  margin: auto;
+  padding: 0.3em 0.15em;
+  width: 9em;
+  height: 7em;
+  background: linear-gradient(to bottom, #a0a0a0 0%, #727272 100%);
+  text-align: center;
+  border: 2px solid #222;
+  border-radius: 0.18em;
+  box-shadow: 0.25em 0.25em 0.15em rgba(0, 0, 0, 0.5);
+
+  h3{
+    margin: 0;
+    color: white;
+    font-size: 1.3em;
+    text-shadow:
+         0.05em 0.05em 1px #000,
+       -1px -1px 0px #000,  
+        1px -1px 1px #000,
+        -1px 1px 1px #000,
+         1px 1px 1px #000;
+  }
+  .overlay-button {
+    display:  inline-block;
+    margin: 0.15em 0;
+    width: 12.5em;
+    height: 2.7em;
+    line-height: 2.7em;
+    box-shadow: inset 0px 1px 0px 0px #ffffff, 0 2px 0 0 rgba(0,0,0,0.5);
+    background-color: #dfdfdf;
+    background: linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0.6);
+    border-radius: 0.3em;
+    text-indent: 0;
+    color: #222;
+    font-size: 0.6em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align:center;
+    text-shadow: 1px 1px 0px #ffffff;
+  }
+  .overlay-button:hover {
+    background: linear-gradient(center top, #ededed 5%, #dfdfdf 100%);
+    background-color: #ededed;
+  }
+  .overlay-button:active {
+    position: relative;
+    top: 1px;
+    box-shadow: inset 0px 1px 0px 0px #ffffff, 0 1px 0 0 rgba(0,0,0,0.5);
+
+  }
+  .copyright-text{
+    position: absolute;
+    margin: auto;
+    bottom: 4%;
+    left: 0;
+    right: 0;
+    font-size: 0.77em;
+    color: white;
+    font-weight: bold;
+    text-shadow:
+         2px 2px 0 #000,
+       -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+         1px 1px 0 #000;
+
+    a{
+      color: inherit;
+      text-decoration: none;
+    }
+    
+  }
+  .copyright-text:hover{
+      transform-origin: 50% 80%;
+      transform: scale(1.09);
+    }
+/* This button was generated using CSSButtonGenerator.com */
 }

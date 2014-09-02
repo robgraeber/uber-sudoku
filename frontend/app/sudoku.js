@@ -833,7 +833,7 @@ module.exports = function Sudoku() {
 
 		// generate hints for the solved board. if the level is easy,
 		// use the easy mask function.
-		if(this.level == 0)
+		if(this.level === 0)
 		{
 			this.maskBoardEasy(this.matrix, mask);
 		}
@@ -907,7 +907,7 @@ module.exports = function Sudoku() {
 		{
 			this.save = this.matrix;
 			this.matrix = mask;
-			// this.done();
+//			this.done();
 		}
 
 		//console.log(hints);
@@ -1108,7 +1108,7 @@ module.exports = function Sudoku() {
 			this.matrix = mask;
 
 			timeDiff.start();
-			// this.done();
+//			this.done();
 		}
 		else
 		{
@@ -1163,4 +1163,3 @@ module.exports = function Sudoku() {
 		return timeDiff.end();
 	}
 }
-

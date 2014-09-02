@@ -1,3 +1,12 @@
+exports.createMatrix = function(width, height){
+  var matrix = [];
+  for(var i = 0; i<height; i++){
+    var row = new Array(width);
+    row.clear();
+    matrix.push(row);
+  }
+  return matrix;
+}
 exports.arrayToMatrix = function(array, width){
   var matrix = [];
   var row = [];
