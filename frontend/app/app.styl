@@ -113,6 +113,28 @@ h1{
     color: inherit;
   }
 }
+.bounce-in{
+  animation: bounce-in-anim 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes bounce-in-anim { 
+  0% { 
+      opacity: 0; 
+      transform: scale(.3); 
+  } 
+
+  50% { 
+      opacity: 1; 
+      transform: scale(1.05); 
+  } 
+
+  70% { 
+      transform: scale(.9); 
+  } 
+
+  100% { 
+      transform: scale(1); 
+  } 
+} 
 .new-game-overlay{
   position: absolute;
   left: 0;
