@@ -19,7 +19,7 @@ Core Technologies
 
 Going forward on this project, I would have liked to improve the sudoku generator library I used. The current library was good for easy sudoku boards, but it's difficulty level feature was broken and I didn't have time to resolve it. I also would have liked to improve the gameplay and potentially refactor my code into a more modular structure as I expanded the project.
 
-![](https://dl.dropboxusercontent.com/u/6061717/Screenshot%202014-09-02%2007.29.25.png)
+![](https://cloud.githubusercontent.com/assets/2387719/5312182/c97e43f4-7c22-11e4-9740-21697ac1ad2e.png)
 
 Demo: http://uber-doku.herokuapp.com/
 
